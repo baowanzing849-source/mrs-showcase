@@ -8,7 +8,7 @@ export default function NotFound() {
         <div className="glass static-card static-card--center">
           <p className="eyebrow">404</p>
           <h1>Page Not Found</h1>
-          <p className="muted">หน้าที่มึงหาไม่มี</p>
+          <p className="muted">หน้าที่หาไม่มี</p>
           <Link href="/" className="btn btn-primary">Back Home</Link>
         </div>
       </div>

@@ -71,7 +71,7 @@ const scripts: ScriptItem[] = [
   },
   {
     slug: 'Farming system 0.5 (BETA)',
-    title: 'Enemy Spawn System',
+    title: 'Farming System',
     category: 'utility',
     categoryLabel: 'Regular',
     thumbnail: '/images/scripts/farming-thumb.jpg',
