@@ -13,7 +13,7 @@ const notoSansThai = Noto_Sans_Thai({
 
 export const metadata: Metadata = {
   title: 'MR.S Showcase',
-  description: 'Premium FiveM script portfolio showcase',
+  description: 'Premium FiveM script showcase',
 }
 
 export default function RootLayout({
