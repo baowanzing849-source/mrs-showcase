@@ -70,8 +70,8 @@ const scripts: ScriptItem[] = [
     ],
   },
   {
-    slug: 'Farming system 0.5 (BETA)',
-    title: 'Farming System',
+    slug: 'farming-system-0-5-beta',
+    title: 'Farming system 0.5 (BETA)',
     category: 'utility',
     categoryLabel: 'Regular',
     thumbnail: '/images/scripts/farming-thumb.jpg',
