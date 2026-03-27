@@ -1,20 +1,13 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Noto_Sans_Thai, Kanit } from 'next/font/google'
+import { Noto_Sans_Thai } from 'next/font/google'
 import { Navbar } from '@/components/Navbar'
 import { Footer } from '@/components/Footer'
 
 const notoSansThai = Noto_Sans_Thai({
-  subsets: ['thai', 'latin'],
+  subsets: ['thai'],
   weight: ['300', '400', '500', '600', '700', '800', '900'],
-  variable: '--font-body',
-  display: 'swap',
-})
-
-const kanit = Kanit({
-  subsets: ['thai', 'latin'],
-  weight: ['400', '500', '600', '700', '800', '900'],
-  variable: '--font-heading',
+  variable: '--font-thai',
   display: 'swap',
 })
 
@@ -25,9 +18,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{ children: React.ReactNode }>) {
+}: {
+  children: React.ReactNode
+}) {
   return (
-    <html lang="th" className={`${notoSansThai.variable} ${kanit.variable}`}>
+    <html lang="en" className={notoSansThai.variable}>
       <body>
         <div className="app-shell">
           <Navbar />
