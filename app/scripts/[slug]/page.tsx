@@ -40,6 +40,7 @@ export default function ScriptDetailPage({
             }}
           >
             <span className="pill">{item.categoryLabel}</span>
+
             <span
               style={{
                 display: 'inline-flex',
@@ -79,6 +80,7 @@ export default function ScriptDetailPage({
               style={{
                 marginTop: 0,
                 marginBottom: '10px',
+                lineHeight: 1.08,
               }}
             >
               {item.title}
@@ -96,34 +98,34 @@ export default function ScriptDetailPage({
               <div
                 style={{
                   display: 'grid',
-                  gridTemplateColumns: '96px 1fr',
+                  gridTemplateColumns: 'minmax(84px, 96px) 1fr',
                   gap: '12px',
                 }}
               >
                 <strong style={{ color: '#fff' }}>Framework</strong>
-                <span>{item.framework}</span>
+                <span style={{ overflowWrap: 'anywhere' }}>{item.framework}</span>
               </div>
 
               <div
                 style={{
                   display: 'grid',
-                  gridTemplateColumns: '96px 1fr',
+                  gridTemplateColumns: 'minmax(84px, 96px) 1fr',
                   gap: '12px',
                 }}
               >
                 <strong style={{ color: '#fff' }}>Status</strong>
-                <span>{item.status}</span>
+                <span style={{ overflowWrap: 'anywhere' }}>{item.status}</span>
               </div>
 
               <div
                 style={{
                   display: 'grid',
-                  gridTemplateColumns: '96px 1fr',
+                  gridTemplateColumns: 'minmax(84px, 96px) 1fr',
                   gap: '12px',
                 }}
               >
                 <strong style={{ color: '#fff' }}>Type</strong>
-                <span>{item.categoryLabel}</span>
+                <span style={{ overflowWrap: 'anywhere' }}>{item.categoryLabel}</span>
               </div>
             </div>
 
@@ -159,13 +161,14 @@ export default function ScriptDetailPage({
           >
             <div
               style={{
-                display: 'grid',
-                gridTemplateColumns: '1fr auto',
+                display: 'flex',
+                flexWrap: 'wrap',
                 gap: '14px',
-                alignItems: 'center',
+                alignItems: 'flex-start',
+                justifyContent: 'space-between',
               }}
             >
-              <div>
+              <div style={{ minWidth: 0 }}>
                 <p
                   className="eyebrow"
                   style={{
@@ -178,8 +181,9 @@ export default function ScriptDetailPage({
                 <h2
                   style={{
                     margin: 0,
-                    fontSize: '38px',
-                    lineHeight: 1.02,
+                    fontSize: 'clamp(28px, 4vw, 38px)',
+                    lineHeight: 1.04,
+                    overflowWrap: 'anywhere',
                   }}
                 >
                   {item.title}
@@ -191,7 +195,7 @@ export default function ScriptDetailPage({
                   display: 'flex',
                   gap: '10px',
                   flexWrap: 'wrap',
-                  justifyContent: 'flex-end',
+                  justifyContent: 'flex-start',
                 }}
               >
                 <span className="pill">{item.framework}</span>
@@ -211,7 +215,7 @@ export default function ScriptDetailPage({
             <div
               style={{
                 display: 'grid',
-                gridTemplateColumns: '1fr 320px',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
                 gap: '20px',
               }}
             >
@@ -222,6 +226,7 @@ export default function ScriptDetailPage({
                   border: '1px solid rgba(255,255,255,0.05)',
                   background:
                     'linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015))',
+                  minWidth: 0,
                 }}
               >
                 <p
@@ -238,6 +243,7 @@ export default function ScriptDetailPage({
                     margin: 0,
                     color: 'rgba(255,255,255,0.78)',
                     lineHeight: 1.9,
+                    overflowWrap: 'anywhere',
                   }}
                 >
                   {item.description}
@@ -251,6 +257,7 @@ export default function ScriptDetailPage({
                   border: '1px solid rgba(255,255,255,0.05)',
                   background:
                     'linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015))',
+                  minWidth: 0,
                 }}
               >
                 <p
@@ -267,15 +274,18 @@ export default function ScriptDetailPage({
                     display: 'grid',
                     gap: '12px',
                     color: 'rgba(255,255,255,0.78)',
+                    overflowWrap: 'anywhere',
                   }}
                 >
                   <div>
                     <strong style={{ color: '#fff' }}>Slug:</strong> {item.slug}
                   </div>
+
                   <div>
                     <strong style={{ color: '#fff' }}>Type:</strong>{' '}
                     {item.categoryLabel}
                   </div>
+
                   <div>
                     <strong style={{ color: '#fff' }}>Status:</strong>{' '}
                     {item.status}
@@ -287,6 +297,7 @@ export default function ScriptDetailPage({
 
           <div className="detail-copy">
             <h2>Core Features</h2>
+
             <ul className="feature-list">
               {item.features.map((feature) => (
                 <li key={feature}>{feature}</li>
@@ -310,7 +321,14 @@ export default function ScriptDetailPage({
               </>
             )}
 
-            <div className="detail-actions">
+            <div
+              className="detail-actions"
+              style={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                gap: '12px',
+              }}
+            >
               <Link href="/scripts" className="btn btn-secondary">
                 Back to Scripts
               </Link>
@@ -335,7 +353,9 @@ export default function ScriptDetailPage({
         </div>
       </div>
 
-      {related.length > 0 && <ShowcaseStrip title="More Like This" items={related} />}
+      {related.length > 0 && (
+        <ShowcaseStrip title="More Like This" items={related} />
+      )}
     </section>
   )
 }
