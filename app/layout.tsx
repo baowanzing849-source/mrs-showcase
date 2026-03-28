@@ -13,7 +13,7 @@ const notoSansThai = Noto_Sans_Thai({
 })
 
 export const metadata: Metadata = {
-  title: 'MR.S Showcase',
+  title: 'mrs development │ Welcome',
   description: 'Premium FiveM script showcase',
   icons: {
     icon: [
