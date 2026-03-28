@@ -57,7 +57,7 @@ const scripts: ScriptItem[] = [
     shortInfo: 'AI combat showcase',
     framework: 'QBCore',
     status: 'Completed',
-    featured: true,
+    featured: false,
     features: [
       'AI behavior showcase',
       'Category based navigation',
