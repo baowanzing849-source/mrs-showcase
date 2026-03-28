@@ -15,8 +15,8 @@ export function Navbar() {
           <Image
             src="/images/logo.png"
             alt="MR.S Logo"
-            width={150}
-            height={150}
+            width={128}
+            height={128}
             priority
             draggable={false}
             style={{
