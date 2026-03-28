@@ -9,14 +9,14 @@ export function Hero() {
       <div className="container hero__inner">
         <div className="hero__content">
           <p className="hero__brand">MR.S SHOWCASE</p>
-          <p className="eyebrow">Premium Script Portfolio</p>
+          <p className="eyebrow">Premium Script</p>
 
           <h1>WELCOME TO MR.S DEVELOPMENT</h1>
 
           <p className="muted max-w-text">
             พื้นที่โชว์ผลงานที่ออกแบบให้มีภาพลักษณ์เข้ม ดุดัน และดูจริงจังมากขึ้น
             เพื่อยกระดับการนำเสนอระบบต่าง ๆ ให้ดูมีตัวตน มีมูลค่า
-            และมีสไตล์ที่ชัดในแบบของเซิร์ฟเวอร์มึง
+            และมีสไตล์ที่ชัดในแบบของเซิร์ฟเวอร์ SECTOR
           </p>
 
           <div className="hero__actions">
