@@ -14,6 +14,14 @@ const notoSansThai = Noto_Sans_Thai({
 export const metadata: Metadata = {
   title: 'MR.S Showcase',
   description: 'Premium FiveM script showcase',
+
+  icons: {
+    icon: [
+      { url: '/favicon.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon.png', sizes: '64x64', type: 'image/png' },
+    ],
+    apple: '/favicon.png',
+  },
 }
 
 export default function RootLayout({
