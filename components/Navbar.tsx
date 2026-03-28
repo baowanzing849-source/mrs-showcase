@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
 import { categories } from '@/data/categories'
@@ -10,9 +11,22 @@ export function Navbar() {
   return (
     <header className="navbar">
       <div className="container navbar__inner">
-        <Link href="/" className="brand">
-          <span className="brand__logo">M</span>
-          <span className="brand__text">MR.S SHOWCASE</span>
+        <Link href="/" className="brand" aria-label="Go to homepage">
+          <Image
+            src="/images/logo.png"
+            alt="MR.S Logo"
+            width={56}
+            height={56}
+            priority
+            draggable={false}
+            style={{
+              width: '56px',
+              height: '56px',
+              objectFit: 'contain',
+              display: 'block',
+              userSelect: 'none',
+            }}
+          />
         </Link>
 
         <nav className="nav">
@@ -23,16 +37,26 @@ export function Navbar() {
             onMouseEnter={() => setOpen(true)}
             onMouseLeave={() => setOpen(false)}
           >
-            <button type="button" className="nav-dropdown__btn">
+            <button
+              type="button"
+              className="nav-dropdown__btn"
+              aria-expanded={open}
+              aria-haspopup="menu"
+            >
               Scripts <span className={`nav-dropdown__caret ${open ? 'is-open' : ''}`}>⌄</span>
             </button>
 
             <div className={`nav-dropdown__panel glass ${open ? 'is-visible' : ''}`}>
               {categories.map((item) => (
-                <Link key={item.slug} href={`/categories/${item.slug}`} className="nav-dropdown__item">
+                <Link
+                  key={item.slug}
+                  href={`/categories/${item.slug}`}
+                  className="nav-dropdown__item"
+                >
                   {item.title}
                 </Link>
               ))}
+
               <Link href="/scripts" className="nav-dropdown__item nav-dropdown__item--all">
                 View All Scripts
               </Link>
