@@ -15,17 +15,33 @@ export default function HomePage() {
 
       <section className="section">
         <div className="container promo-panel glass">
-          <div>
+          
+          {/* LEFT CONTENT */}
+          <div className="promo-panel__content">
             <p className="eyebrow">Professional</p>
-            <h2>เว็บไซต์นี้สร้างขึ้นมาเพื่อโชว์ผลงานออทิสติดของเซิฟเวอร์Sector เพียงเท่านั้นไม่ขายหรือแจกอมไว้คนเดียว</h2>
-            <p className="muted max-w-text">
-              หีหีควยแตด โอ้ย!! รวยไม่ไหวแล้ว
+
+            <h2 className="promo-panel__title">
+              เว็บไซต์นี้สร้างขึ้นมาเพื่อโชว์ผลงานของเซิร์ฟเวอร์ Sector 
+              เท่านั้น ไม่ขาย ไม่แจก เป็นผลงานส่วนตัว
+            </h2>
+
+            <p className="muted promo-panel__desc">
+              ระบบทั้งหมดถูกพัฒนาแบบมืออาชีพ เน้นความเสถียร ความสวยงาม 
+              และประสบการณ์ผู้เล่นระดับสูง
             </p>
           </div>
+
+          {/* RIGHT ACTIONS */}
           <div className="promo-panel__actions">
-            <Link href="/scripts" className="btn btn-primary">ดูผลงานทั้งหมด</Link>
-            <Link href="/contact" className="btn btn-secondary">ติดต่อ</Link>
+            <Link href="/scripts" className="btn btn-primary">
+              ดูผลงานทั้งหมด
+            </Link>
+
+            <Link href="/contact" className="btn btn-secondary">
+              ติดต่อ
+            </Link>
           </div>
+
         </div>
       </section>
     </>
