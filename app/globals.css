@@ -20,7 +20,7 @@
   --radius-md: 18px;
   --radius-sm: 14px;
   --container: 1320px;
-  --nav-height: 86px;
+  --nav-height: 96px;
 }
 
 /* =========================
@@ -32,6 +32,7 @@
 
 html {
   scroll-behavior: smooth;
+  scrollbar-width: none;
 }
 
 body {
@@ -41,6 +42,7 @@ body {
   overflow-x: hidden;
   position: relative;
   background: #070707;
+  -ms-overflow-style: none;
 }
 
 body::before {
@@ -53,8 +55,8 @@ body::before {
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  filter: blur(0.9px) saturate(0.96) brightness(0.78);
-  transform: scale(1.012);
+  filter: blur(0.6px) saturate(0.92) brightness(0.52);
+  transform: scale(1.01);
 }
 
 body::after {
@@ -64,11 +66,11 @@ body::after {
   z-index: -4;
   pointer-events: none;
   background:
-    radial-gradient(circle at 50% 48%, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.06) 52%, rgba(0, 0, 0, 0.16) 100%),
-    radial-gradient(circle at 68% 34%, rgba(255, 150, 70, 0.045), transparent 20%),
-    radial-gradient(circle at 54% 58%, rgba(255, 120, 40, 0.03), transparent 18%),
+    radial-gradient(circle at 50% 48%, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.04) 52%, rgba(0, 0, 0, 0.14) 100%),
+    radial-gradient(circle at 68% 34%, rgba(255, 150, 70, 0.04), transparent 20%),
+    radial-gradient(circle at 54% 58%, rgba(255, 120, 40, 0.028), transparent 18%),
     radial-gradient(circle at 80% 24%, rgba(120, 0, 0, 0.05), transparent 24%),
-    linear-gradient(180deg, rgba(0, 0, 0, 0.10) 0%, rgba(0, 0, 0, 0.06) 35%, rgba(0, 0, 0, 0.10) 100%);
+    linear-gradient(180deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.05) 35%, rgba(0, 0, 0, 0.08) 100%);
 }
 
 a {
@@ -96,6 +98,38 @@ input {
 ::selection {
   background: rgba(244, 201, 141, 0.24);
   color: #fff;
+}
+
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* ปิดการลากเลือกในจุดที่ไม่จำเป็น */
+html,
+body,
+.navbar,
+.nav,
+.brand,
+.hero h1,
+.hero h2,
+.hero__brand,
+.eyebrow,
+.btn,
+.section-head h2,
+.category-card h3,
+.script-card h3,
+.page-hero h1,
+.detail-hero h1 {
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+img,
+button,
+a {
+  -webkit-user-drag: none;
 }
 
 /* =========================
@@ -130,7 +164,6 @@ input {
   padding-bottom: 28px;
 }
 
-/* แก้เฉพาะให้รอยต่อข้างล่างเนียนขึ้นตอนดึง explorer ขึ้นมา */
 .section--pullup {
   margin-top: -44px;
   position: relative;
@@ -191,13 +224,16 @@ input {
   );
 }
 
+/* =========================
+   BUTTONS
+========================= */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 48px;
-  padding: 0 18px;
-  border-radius: 14px;
+  min-height: 52px;
+  padding: 0 22px;
+  border-radius: 16px;
   border: 1px solid transparent;
   transition:
     transform .18s ease,
@@ -206,6 +242,7 @@ input {
     opacity .18s ease,
     box-shadow .18s ease;
   font-weight: 800;
+  line-height: 1;
   cursor: pointer;
   white-space: nowrap;
   will-change: transform;
@@ -218,11 +255,11 @@ input {
 .btn-primary {
   background: linear-gradient(180deg, var(--gold-bright), var(--gold));
   color: #111;
-  box-shadow: 0 12px 28px rgba(217, 178, 122, 0.16);
+  box-shadow: 0 12px 28px rgba(217, 178, 122, 0.18);
 }
 
 .btn-primary:hover {
-  box-shadow: 0 16px 34px rgba(217, 178, 122, 0.22);
+  box-shadow: 0 16px 34px rgba(217, 178, 122, 0.24);
 }
 
 .btn-secondary {
@@ -246,6 +283,9 @@ input {
   width: 100%;
 }
 
+/* =========================
+   NAVBAR
+========================= */
 .navbar {
   position: sticky;
   top: 0;
@@ -401,11 +441,6 @@ input {
   content: none !important;
 }
 
-/* แก้เฉพาะหน้า category:
-   - ให้รูปเต็มกว้างจริง
-   - ไม่ repeat
-   - cover เต็มพื้นที่
-   - จัดตำแหน่งกลาง */
 .page-hero {
   min-height: 420px;
   width: 100%;
@@ -415,7 +450,6 @@ input {
   isolation: isolate;
 }
 
-/* ทำขอบล่างเนียน ไม่ตัดแข็ง */
 .page-hero::after {
   content: "";
   position: absolute;
@@ -438,8 +472,29 @@ input {
   min-height: 440px;
 }
 
+/* จุดสำคัญ: static page ใช้ภาพตัวเองเต็มจริง */
 .static-page {
   min-height: calc(100vh - var(--nav-height));
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  isolation: isolate;
+}
+
+.static-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.28) 0%, rgba(0, 0, 0, 0.38) 38%, rgba(0, 0, 0, 0.52) 100%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.22) 0%, rgba(0, 0, 0, 0.08) 45%, rgba(0, 0, 0, 0.18) 100%);
+  pointer-events: none;
+}
+
+.static-page > * {
+  position: relative;
+  z-index: 2;
 }
 
 .hero__overlay,
@@ -548,9 +603,18 @@ input {
 
 .hero__actions {
   display: flex;
-  gap: 14px;
+  align-items: center;
+  gap: 16px;
   flex-wrap: wrap;
   margin-top: 34px;
+}
+
+.hero__actions .btn {
+  min-width: 0;
+}
+
+.hero__actions .btn + .btn {
+  margin-left: 0;
 }
 
 .hero__panel {
@@ -923,7 +987,6 @@ input {
   aspect-ratio: 16 / 9;
   background: #000;
   box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02);
-
   isolation: isolate;
   transform: translateZ(0);
   will-change: transform;
@@ -969,15 +1032,20 @@ input {
 }
 
 /* =========================
-   STATIC PAGE / CONTACT / FOOTER
+   STATIC PAGE / ABOUT / CONTACT / FOOTER
 ========================= */
 .static-card {
+  position: relative;
+  z-index: 3;
   padding: 32px;
-  background: rgba(8, 8, 10, 0.34);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(8, 8, 10, 0.46);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-radius: var(--radius-xl);
-  border: 1px solid rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow:
+    0 24px 80px rgba(0, 0, 0, 0.30),
+    inset 0 1px 0 rgba(255, 255, 255, 0.02);
 }
 
 .static-card--center {
@@ -1006,27 +1074,6 @@ input {
   color: var(--muted);
 }
 
-/* Chrome, Edge, Safari */
-::-webkit-scrollbar {
-  display: none;
-}
-
-/* Firefox */
-html {
-  scrollbar-width: none;
-}
-
-/* IE/Edge เก่า */
-body {
-  -ms-overflow-style: none;
-}
-
-html,
-body {
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
 /* =========================
    RESPONSIVE
 ========================= */
@@ -1065,11 +1112,6 @@ body {
 }
 
 @media (max-width: 900px) {
-  .brand__text {
-    letter-spacing: 0.14em;
-    font-size: 14px;
-  }
-
   .nav {
     gap: 18px;
     font-size: 16px;
@@ -1147,7 +1189,7 @@ body {
   .hero__actions .btn,
   .detail-actions .btn,
   .promo-panel__actions .btn {
-    width: 100%;
+    width: auto;
   }
 
   .hero__noise,
@@ -1180,7 +1222,7 @@ body {
 
   body::before {
     background-position: center center;
-    filter: blur(0.7px) saturate(0.94) brightness(0.76);
+    filter: blur(0.5px) saturate(0.9) brightness(0.48);
   }
 
   .page-hero::after {
