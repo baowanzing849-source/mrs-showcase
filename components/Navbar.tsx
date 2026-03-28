@@ -20,8 +20,8 @@ export function Navbar() {
             priority
             draggable={false}
             style={{
-              width: '128px',
-              height: '128px',
+              width: '80px',
+              height: '80px',
               objectFit: 'contain',
               display: 'block',
               userSelect: 'none',
