@@ -1021,6 +1021,12 @@ body {
   -ms-overflow-style: none;
 }
 
+html,
+body {
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 /* =========================
    RESPONSIVE
 ========================= */
