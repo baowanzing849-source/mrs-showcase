@@ -7,12 +7,13 @@ export default function ContactPage() {
       style={{ backgroundImage: "url('/images/backgrounds/contact.jpg')" }}
     >
       <div className="static-page__overlay" />
+      <div className="static-page__noise" />
 
       <div className="container section">
         <div
           className="glass static-card"
           style={{
-            padding: '36px',
+            padding: '38px',
             maxWidth: '1240px',
             margin: '0 auto',
           }}
@@ -20,12 +21,11 @@ export default function ContactPage() {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: '1.1fr 0.9fr',
+              gridTemplateColumns: '1.05fr 0.95fr',
               gap: '28px',
               alignItems: 'stretch',
             }}
           >
-            {/* LEFT SIDE */}
             <div
               style={{
                 display: 'flex',
@@ -53,21 +53,21 @@ export default function ContactPage() {
                 <p
                   className="muted"
                   style={{
-                    marginTop: '18px',
+                    marginTop: '20px',
                     maxWidth: '720px',
                     fontSize: '16px',
                     lineHeight: 1.85,
                   }}
                 >
-                  ช่องทางติดต่อหลักสำหรับงานโชว์ผลงาน พูดคุยรายละเอียดระบบ
-                  ปรึกษาแนวทางพัฒนา และติดตามอัปเดตต่าง ๆ ของผลงานทั้งหมด
-                  ในสไตล์ที่ชัด ตรง และทำงานได้จริง
+                  ช่องทางหลักสำหรับติดต่อเกี่ยวกับผลงาน การสอบถามรายละเอียดระบบ
+                  การพูดคุยแนวทางพัฒนา และติดตามอัปเดตต่าง ๆ ของโปรเจกต์ทั้งหมด
+                  ในสไตล์ที่ชัด ตรง และใช้งานได้จริง
                 </p>
               </div>
 
               <div
                 style={{
-                  marginTop: '28px',
+                  marginTop: '30px',
                   display: 'flex',
                   flexWrap: 'wrap',
                   gap: '12px',
@@ -91,7 +91,7 @@ export default function ContactPage() {
 
               <div
                 style={{
-                  marginTop: '26px',
+                  marginTop: '28px',
                   paddingTop: '18px',
                   borderTop: '1px solid rgba(255,255,255,0.06)',
                   color: 'rgba(255,255,255,0.66)',
@@ -101,11 +101,10 @@ export default function ContactPage() {
               >
                 ช่องทางหลักที่แนะนำ: Discord
                 <br />
-                เวลาตอบกลับเร็วที่สุด: ช่วงที่ออนไลน์ในเซิร์ฟเวอร์ / Discord
+                ช่องทางสำรอง: Email
               </div>
             </div>
 
-            {/* RIGHT SIDE */}
             <div
               style={{
                 display: 'grid',
@@ -117,7 +116,7 @@ export default function ContactPage() {
               <div
                 className="glass contact-box"
                 style={{
-                  padding: '22px',
+                  padding: '24px',
                   minHeight: 'unset',
                 }}
               >
@@ -127,7 +126,9 @@ export default function ContactPage() {
                 >
                   Primary Channel
                 </p>
+
                 <h3 style={{ marginTop: 0, marginBottom: '10px' }}>Discord</h3>
+
                 <p
                   style={{
                     marginBottom: '16px',
@@ -139,6 +140,7 @@ export default function ContactPage() {
                 >
                   discord.gg/heekuyted
                 </p>
+
                 <Link
                   href="https://discord.gg/heekuyted"
                   target="_blank"
@@ -168,7 +170,9 @@ export default function ContactPage() {
                   >
                     Email
                   </p>
+
                   <h3 style={{ marginTop: 0, marginBottom: '10px' }}>Direct</h3>
+
                   <p
                     style={{
                       margin: 0,
@@ -194,7 +198,9 @@ export default function ContactPage() {
                   >
                     Brand
                   </p>
+
                   <h3 style={{ marginTop: 0, marginBottom: '10px' }}>Identity</h3>
+
                   <p
                     style={{
                       margin: 0,
@@ -218,15 +224,16 @@ export default function ContactPage() {
                   className="eyebrow"
                   style={{ marginBottom: '10px', letterSpacing: '0.18em' }}
                 >
-                  Note
+                  Communication Note
                 </p>
+
                 <h3 style={{ marginTop: 0, marginBottom: '10px' }}>
-                  Showcase & Communication
+                  Showcase & Coordination
                 </h3>
+
                 <p style={{ margin: 0 }}>
                   หน้านี้ใช้สำหรับติดต่อเกี่ยวกับผลงาน การนำเสนอระบบ
-                  และการพูดคุยงานที่เกี่ยวข้องกับโปรเจกต์ของเซิร์ฟเวอร์
-                  เป็นหลัก
+                  และการพูดคุยงานที่เกี่ยวข้องกับโปรเจกต์ของเซิร์ฟเวอร์เป็นหลัก
                 </p>
               </div>
             </div>
