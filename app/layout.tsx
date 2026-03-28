@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { Noto_Sans_Thai } from 'next/font/google'
 import { Navbar } from '@/components/Navbar'
 import { Footer } from '@/components/Footer'
+import { MusicPlayer } from '@/components/MusicPlayer'
 
 const notoSansThai = Noto_Sans_Thai({
   subsets: ['thai'],
@@ -12,9 +13,8 @@ const notoSansThai = Noto_Sans_Thai({
 })
 
 export const metadata: Metadata = {
-  title: 'mrs development │ Welcome',
+  title: 'MR.S Showcase',
   description: 'Premium FiveM script showcase',
-
   icons: {
     icon: [
       { url: '/favicon.png', sizes: '32x32', type: 'image/png' },
@@ -36,6 +36,7 @@ export default function RootLayout({
           <Navbar />
           {children}
           <Footer />
+          <MusicPlayer />
         </div>
       </body>
     </html>
