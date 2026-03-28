@@ -440,7 +440,7 @@ a {
     linear-gradient(180deg, rgba(5, 5, 7, 0.52), rgba(5, 5, 7, 0.30));
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  overflow: hidden;
+  overflow: visible;
 }
 
 .navbar::after {
@@ -551,7 +551,7 @@ a {
     transform .18s ease,
     visibility .18s ease;
   pointer-events: none;
-  z-index: 200;
+  z-index: 999;
 }
 
 .nav-dropdown__panel.is-visible {
