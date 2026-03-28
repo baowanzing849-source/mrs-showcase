@@ -310,8 +310,8 @@ input {
 
 .nav-dropdown {
   position: relative;
-  padding-bottom: 10px;
-  margin-bottom: -10px;
+  display: flex;
+  align-items: center;
 }
 
 .nav-dropdown__btn {
@@ -335,9 +335,9 @@ input {
 
 .nav-dropdown__panel {
   position: absolute;
-  top: calc(100% + 14px);
+  top: calc(100% + 12px);
   left: 0;
-  min-width: 280px;
+  min-width: 300px;
   padding: 12px;
   display: grid;
   gap: 6px;
@@ -349,6 +349,7 @@ input {
     transform .18s ease,
     visibility .18s ease;
   pointer-events: none;
+  z-index: 200;
 }
 
 .nav-dropdown__panel.is-visible {
@@ -356,15 +357,6 @@ input {
   visibility: visible;
   transform: translateY(0);
   pointer-events: auto;
-}
-
-.nav-dropdown__panel::before {
-  content: "";
-  position: absolute;
-  top: -14px;
-  left: 0;
-  right: 0;
-  height: 18px;
 }
 
 .nav-dropdown__item {
