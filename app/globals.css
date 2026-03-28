@@ -274,8 +274,8 @@ input {
 }
 
 .brand img {
-  width: 128px;
-  height: 128px;
+  width: 150px;
+  height: 150px;
   object-fit: contain;
   display: block;
   user-select: none;

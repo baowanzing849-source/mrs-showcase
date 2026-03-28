@@ -15,13 +15,13 @@ export function Navbar() {
           <Image
             src="/images/logo.png"
             alt="MR.S Logo"
-            width={128}
-            height={128}
+            width={150}
+            height={150}
             priority
             draggable={false}
             style={{
-              width: '110px',
-              height: '110px',
+              width: '80px',
+              height: '80px',
               objectFit: 'contain',
               display: 'block',
               userSelect: 'none',
