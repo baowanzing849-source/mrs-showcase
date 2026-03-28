@@ -15,13 +15,13 @@ export function Navbar() {
           <Image
             src="/images/logo.png"
             alt="MR.S Logo"
-            width={56}
-            height={56}
+            width={80}
+            height={80}
             priority
             draggable={false}
             style={{
-              width: '56px',
-              height: '56px',
+              width: '80px',
+              height: '80px',
               objectFit: 'contain',
               display: 'block',
               userSelect: 'none',
@@ -40,8 +40,6 @@ export function Navbar() {
             <button
               type="button"
               className="nav-dropdown__btn"
-              aria-expanded={open}
-              aria-haspopup="menu"
             >
               Scripts <span className={`nav-dropdown__caret ${open ? 'is-open' : ''}`}>⌄</span>
             </button>

@@ -246,9 +246,6 @@ input {
   width: 100%;
 }
 
-/* =========================
-   NAVBAR
-========================= */
 .navbar {
   position: sticky;
   top: 0;
@@ -260,7 +257,7 @@ input {
 }
 
 .navbar__inner {
-  min-height: var(--nav-height);
+  min-height: 96px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -268,30 +265,27 @@ input {
 }
 
 .brand {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 14px;
+  justify-content: center;
   flex-shrink: 0;
+  line-height: 0;
+  text-decoration: none;
 }
 
-.brand__logo {
-  width: 56px;
-  height: 56px;
-  display: grid;
-  place-items: center;
-  border-radius: 18px;
-  background: linear-gradient(180deg, var(--gold-bright), var(--gold));
-  color: #111;
-  font-size: 28px;
-  font-weight: 900;
-  box-shadow: 0 0 24px rgba(217, 178, 122, 0.16);
+.brand img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+  filter: drop-shadow(0 0 14px rgba(217, 178, 122, 0.12));
 }
 
+.brand__logo,
 .brand__text {
-  font-size: 16px;
-  font-weight: 900;
-  letter-spacing: 0.22em;
-  color: rgba(255, 255, 255, 0.92);
+  display: none !important;
 }
 
 .nav {
