@@ -181,7 +181,7 @@ const scripts: ScriptItem[] = [
     categoryLabel: 'Apocalypse',
     thumbnail: '/images/scripts/helicom-thumb.jpg',
     cover: '/images/scripts/helicom-cover.png',
-    youtubeId: 'NunrVymg',
+    youtubeId: 'z47NunrVymg',
     summary: 'ระบบเฮลิคอปเตอร์รับส่งอัตโนมัติ พร้อมเอฟเฟกต์การเดินทางสมจริง',
     description: 'ระบบเฮลิคอปเตอร์สำหรับ FiveM ที่ใช้รับส่งผู้เล่นระหว่างจุดต่าง ๆ แบบอัตโนมัติ รองรับการตั้งค่าจุดขึ้นลงได้อิสระ พร้อมระบบ takeoff/landing สมจริง เอฟเฟกต์ภาพและเสียงระหว่างการเดินทาง และการควบคุมผ่านปุ่ม E แบบ interactive ระบบทำงานลื่นไหล ไม่กินทรัพยากร และเหมาะสำหรับเซิร์ฟเวอร์ที่ต้องการระบบขนส่งทางอากาศระดับโปร',
     shortInfo: 'helicom system showcase',
