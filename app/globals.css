@@ -1006,6 +1006,21 @@ input {
   color: var(--muted);
 }
 
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Firefox */
+html {
+  scrollbar-width: none;
+}
+
+/* IE/Edge เก่า */
+body {
+  -ms-overflow-style: none;
+}
+
 /* =========================
    RESPONSIVE
 ========================= */
