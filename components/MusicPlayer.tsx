@@ -9,7 +9,6 @@ export function MusicPlayer() {
   const [isExpanded, setIsExpanded] = useState(false)
   const [volume, setVolume] = useState(0.35)
   const [isHydrated, setIsHydrated] = useState(false)
-  const [hasInteracted, setHasInteracted] = useState(false)
 
   useEffect(() => {
     setIsHydrated(true)
@@ -30,7 +29,7 @@ export function MusicPlayer() {
     }
 
     if (savedPlaying === 'true') {
-      setIsPlaying(true)
+      setIsPlaying(false)
     }
   }, [])
 
@@ -50,11 +49,7 @@ export function MusicPlayer() {
   useEffect(() => {
     if (!isHydrated) return
 
-    const tryAutoPlayAfterInteraction = async () => {
-      if (hasInteracted) return
-
-      setHasInteracted(true)
-
+    const tryAutoPlay = async () => {
       const shouldPlay = localStorage.getItem('mrs_music_playing')
       if (shouldPlay !== 'true') return
 
@@ -67,18 +62,28 @@ export function MusicPlayer() {
       } catch {
         setIsPlaying(false)
       }
+
+      window.removeEventListener('pointerdown', tryAutoPlay)
+      window.removeEventListener('keydown', tryAutoPlay)
+      window.removeEventListener('wheel', tryAutoPlay)
+      window.removeEventListener('touchstart', tryAutoPlay)
+      window.removeEventListener('scroll', tryAutoPlay)
     }
 
-    window.addEventListener('pointerdown', tryAutoPlayAfterInteraction, { once: true })
-    window.addEventListener('keydown', tryAutoPlayAfterInteraction, { once: true })
-    window.addEventListener('scroll', tryAutoPlayAfterInteraction, { once: true })
+    window.addEventListener('pointerdown', tryAutoPlay, { passive: true })
+    window.addEventListener('keydown', tryAutoPlay, { passive: true })
+    window.addEventListener('wheel', tryAutoPlay, { passive: true })
+    window.addEventListener('touchstart', tryAutoPlay, { passive: true })
+    window.addEventListener('scroll', tryAutoPlay, { passive: true })
 
     return () => {
-      window.removeEventListener('pointerdown', tryAutoPlayAfterInteraction)
-      window.removeEventListener('keydown', tryAutoPlayAfterInteraction)
-      window.removeEventListener('scroll', tryAutoPlayAfterInteraction)
+      window.removeEventListener('pointerdown', tryAutoPlay)
+      window.removeEventListener('keydown', tryAutoPlay)
+      window.removeEventListener('wheel', tryAutoPlay)
+      window.removeEventListener('touchstart', tryAutoPlay)
+      window.removeEventListener('scroll', tryAutoPlay)
     }
-  }, [hasInteracted, isHydrated])
+  }, [isHydrated])
 
   const togglePlay = async () => {
     const audio = audioRef.current
@@ -107,51 +112,58 @@ export function MusicPlayer() {
     <>
       <audio ref={audioRef} src="/audio/theme.mp3" loop preload="auto" />
 
-      <div className={`music-dock ${isExpanded ? 'is-expanded' : 'is-collapsed'}`}>
-        <button
-          type="button"
-          className="music-dock__fab"
-          onClick={() => setIsExpanded((prev) => !prev)}
-          aria-label={isExpanded ? 'Hide music player' : 'Show music player'}
-        >
-          {isExpanded ? '—' : '♫'}
-        </button>
+      <div className={`music-float ${isExpanded ? 'is-open' : 'is-closed'}`}>
+        {!isExpanded && (
+          <button
+            type="button"
+            className={`music-float__icon ${isPlaying ? 'is-playing' : ''}`}
+            onClick={() => setIsExpanded(true)}
+            aria-label="Open music player"
+          >
+            ♫
+          </button>
+        )}
 
-        <div className="music-dock__panel">
-          <div className="music-dock__top">
-            <div className="music-dock__meta">
-              <span className="music-dock__eyebrow">Ambient Audio</span>
-              <strong className="music-dock__title">MR.S RADIO</strong>
-            </div>
-
-            <span className={`music-dock__status ${isPlaying ? 'is-on' : ''}`}>
-              {isPlaying ? 'LIVE' : 'OFF'}
-            </span>
-          </div>
-
-          <div className="music-dock__controls">
+        {isExpanded && (
+          <div className="music-float__panel">
             <button
               type="button"
-              className={`music-dock__play ${isPlaying ? 'is-playing' : ''}`}
-              onClick={togglePlay}
+              className="music-float__close"
+              onClick={() => setIsExpanded(false)}
+              aria-label="Close music player"
             >
-              {isPlaying ? 'ปิดเพลง' : 'เปิดเพลง'}
+              —
             </button>
 
-            <div className="music-dock__volume-wrap">
-              <span className="music-dock__volume-icon">VOL</span>
-              <input
-                className="music-dock__volume"
-                type="range"
-                min="0"
-                max="1"
-                step="0.01"
-                value={volume}
-                onChange={(e) => setVolume(Number(e.target.value))}
-              />
+            <div className="music-float__meta">
+              <span className="music-float__eyebrow">Ambient Audio</span>
+              <strong className="music-float__title">MR.S RADIO</strong>
+            </div>
+
+            <div className="music-float__controls">
+              <button
+                type="button"
+                className={`music-float__play ${isPlaying ? 'is-playing' : ''}`}
+                onClick={togglePlay}
+              >
+                {isPlaying ? 'ปิดเพลง' : 'เปิดเพลง'}
+              </button>
+
+              <div className="music-float__volume-wrap">
+                <span className="music-float__volume-label">VOL</span>
+                <input
+                  className="music-float__volume"
+                  type="range"
+                  min="0"
+                  max="1"
+                  step="0.01"
+                  value={volume}
+                  onChange={(e) => setVolume(Number(e.target.value))}
+                />
+              </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
     </>
   )
